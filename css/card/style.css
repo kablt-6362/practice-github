@@ -15,7 +15,9 @@
 }
 
 .card-header {
+  font-weight: 900;
   height: 33%;
+  color: black;
 }
 
 .card-body {
