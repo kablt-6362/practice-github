@@ -26,6 +26,7 @@
 .card-footer {
   height: 33%;
   display: flex;
+  width: 80%;
 }
 
 .item {
