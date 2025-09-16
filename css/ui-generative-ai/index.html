@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일일 트레이닝</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- header 부분 -->
+    <h1>오늘도 당신의 건강을 응원합니다!</h1>
+    <!-- 중앙 3개 추천운동,일일 체중 변화, 정보입력란+진행율 -->
+    <div class="body-main">
+      <!-- 추천운동, 일일 변화량 -->
+      <div class="body-main-left">
+        <div class="exercise-main-box">
+          <div class="exercise-recommend">추천운동</div>
+          <div>
+            <ul>
+              <li>
+                <div style="font-weight: 900">스쿼트</div>
+                <div style="font-weight: 300">
+                  하체 근력 강화에 효과적인 대표적인 운동입니다. 허벅지와 엉덩이
+                  근육을 단련합니다.
+                </div>
+                <button>운동 완료!</button>
+              </li>
+              <li>
+                <div style="font-weight: 900">푸쉬업</div>
+                <div style="font-weight: 300">
+                  가슴, 어깨, 삼두근을 강화하는 상체 운동입니다. 코어 근육
+                  발달에도 도움이 됩니다.
+                </div>
+                <button>운동 완료!</button>
+              </li>
+              <li>
+                <div style="font-weight: 900">플랭크</div>
+                <div style="font-weight: 300">
+                  코어 근육을 강화하고 자세를 개선하는 데 도움을 주는 정적
+                  운동입니다.
+                </div>
+                <button>운동 완료!</button>
+              </li>
+              <li>
+                <div style="font-weight: 900">달리기</div>
+                <div style="font-weight: 300">
+                  심폐지구력을 향상시키고 체지방 감소에 효과적인 유산소
+                  운동입니다.
+                </div>
+                <button>운동 완료!</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="weight-change-box">
+          <div class="change-title">일일 체중 변화</div>
+          <div>
+            <ul>
+              <!-- space-between으로 좌우 딱붙 -->
+              <li class="change-title-li-1">
+                <div>날짜</div>
+                <div>체중</div>
+                <div>변화</div>
+              </li>
+              <li>
+                <div>2025-09-16</div>
+                <div>74.5kg</div>
+                <div>+0.3kg</div>
+              </li>
+              <li>
+                <div>2025-09-15</div>
+                <div>74.2kg</div>
+                <div>+0.5kg</div>
+              </li>
+              <li>
+                <div>2025-09-14</div>
+                <div>73.7kg</div>
+                <div>-0.1kg</div>
+              </li>
+              <li>
+                <div>2025-09-13</div>
+                <div>73.8kg</div>
+                <div>-0.2kg</div>
+              </li>
+               <li>
+                <div>2025-09-12</div>
+                <div>73.6kg</div>
+                <div>-3kg</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 정보,진행률 -->
+      <div class="body-main-right">
+        <!-- 이름 등 정보 -->
+        <div class="status">
+          <div>
+            <div><label for="name">이름</label></div>
+            <div><input id="name" type="text" placeholder="홍길동" ></div>
+          </div>
+          <div>
+            <div><label for="cm">키(cm)</label></div>
+            <div><input id="cm" type="text" placeholder="185" ></div>
+          </div>
+          <div><div><label for="now-weight">현재 체중(kg)</label></div>
+            <div><input id="now-weight" type="text" placeholder="71" ></div></div>
+          <div><div><label for="goal-weight">목표 체중(kg)</label></div>
+            <div><input id="goal-weight" type="text" placeholder="68" ></div></div>
+          <button>입력하기</button>
+        </div>
+        <!-- 진행률 -->
+        <div class="grape">
+          <div>목표달성률</div>
+          <div class="grape-bar">
+            <div><form action="/action_page.php">
+            <label for="vol"></label>
+            <input type="range" id="vol" name="vol" min="0" max="100" value="10" disabled>
+            </form>
+          </div>
+          <div class="goal-memo">10% 달성! 갈길이 멀어요. 적당히 드세요.</div>
+          <div class="goal-grape-weight"><span>75kg</span>
+          <span>68kg</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer>
+      <ul>
+        <li><input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTiuwJ5uawumG5uSP9Wh_ZOwuAucquDae9_Q&s" alt="Home"></input></li>
+        <li><input type="image" src="https://e7.pngegg.com/pngimages/413/46/png-clipart-emoji-fitness-centre-sticker-physical-exercise-whatsapp-13-angle-physical-fitness.png" alt="Exercies"></input></li>
+        <li><input type="image" src="https://www.shutterstock.com/image-vector/doodle-emoji-loading-bar-handdrawn-260nw-2056260941.jpg" alt="Progress"></input></li>
+        <li><input type="image" src="https://cdn3.emoji.gg/emojis/2637-settings.png" alt="Setting"></input></li>
+      </ul>
+    </footer>
+  </body>
+</html>

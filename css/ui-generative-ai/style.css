@@ -1,0 +1,219 @@
+h1 {
+  color: white;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 10px;
+  height: 150px;
+  text-align: center;
+  padding-top: 50px;
+  box-sizing: border-box;
+
+  background-image: url(https://us.123rf.com/450wm/barks/barks2209/barks220900041/191806213-%EC%B2%B4%EC%9C%A1%EA%B4%80-%EC%88%98%ED%8F%89-%EB%B2%A1%ED%84%B0-%EB%B0%B0%EB%84%88-%EA%B7%B8%EB%A6%BC%EC%97%90%EC%84%9C-%EC%9A%B4%EB%8F%99%ED%95%98%EB%8A%94-%EC%82%AC%EB%9E%8C%EB%93%A4.jpg?ver=6);
+  background-size: coverguswo guswo tkd;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body {
+  background-color: rgb(214, 208, 208);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* 추천운동 리스트 */
+.exercise-main-box {
+  flex-direction: column;
+  display: flex;
+}
+
+.exercise-main-box ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.exercise-main-box ul li {
+  width: 10%;
+  background-color: white;
+  height: 160px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.exercise-main-box ul li button {
+  margin-top: auto;
+  align-self: center;
+  width: 90%;
+  height: 25%;
+  background-color: greenyellow;
+  color: black;
+  border-radius: 0.25rem;
+}
+
+.exercise-main-box ul li div:first-child {
+  margin-bottom: 10px;
+}
+
+.exercise-recommend {
+  text-align: center;
+  height: 0.5vh;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/*body 쪽 */
+.body-main {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 80%;
+  background-color: rgb(214, 208, 208);
+}
+
+/* body-main-left 쪽 */
+.body-main-left {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exercise-main-box {
+  height: 35%;
+  background-color: rgb(214, 208, 208);
+}
+
+/* 일일 체중 변화 */
+.weight-change-box {
+  height: 65%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.weight-change-box > div:last-child {
+  flex: 1;
+  display: flex;
+}
+
+.change-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.weight-change-box ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.weight-change-box ul li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.weight-change-box ul li + li {
+  border-top: 1px solid black;
+}
+
+.change-title-li-1 {
+  background-color: rgb(189, 183, 183);
+}
+
+/* body-main-right */
+.body-main-right {
+  width: 18%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.status input {
+  border-radius: 0.4rem;
+  border: solid;
+  border-width: 1px;
+}
+
+.status button {
+  margin-top: 10px;
+  width: 80%;
+  background-color: rgba(38, 87, 221, 0.514);
+}
+
+.grape {
+  display: flex;
+  flex-direction: column;
+}
+
+.grape div:first-child {
+  align-self: center;
+  font-weight: 700;
+}
+
+.grape-bar {
+  display: flex;
+  flex-direction: column;
+}
+/* Chrome, Safari, Edge 등 Webkit 기반 브라우저용 */
+.grape-bar input[type="range"]:disabled::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    #87ceeb 0%,
+    #87ceeb 10%,
+    #d3d3d3 10%,
+    #d3d3d3 100%
+  );
+}
+
+/* Firefox 브라우저용 */
+.grape-bar input[type="range"]:disabled::-moz-range-track {
+  background: linear-gradient(
+    to right,
+    #87ceeb 0%,
+    #87ceeb 10%,
+    #d3d3d3 10%,
+    #d3d3d3 100%
+  );
+}
+
+.goal-memo {
+  align-self: center;
+  font-size: 0.6rem;
+}
+
+.goal-grape-weight {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* footer */
+footer ul {
+  display: flex;
+  justify-content: space-around;
+  height: 5vh;
+  align-items: center;
+}
+
+footer input[type="image"] {
+  width: 30px;
+  height: 30px;
+}
