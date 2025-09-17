@@ -121,3 +121,38 @@ console.log(price);
 100
 80
 */
+
+//gemini 추천 문제
+
+// 두 과목의 시험 점수를 바탕으로 합격 여부를 판별하는 프로그램을 만들어 보세요.
+// koreanScore 변수에 85를, mathScore 변수에 75를 할당하세요.
+// koreanScore에 5점을 추가하고, mathScore에는 10점을 감점하세요. +=, -= 연산자를 사용하여 재할당하세요.
+// 합격 기준은 두 과목 점수가 모두 80점 이상일 때입니다.
+// isPassed 변수에 합격 여부(true / false)를 저장하고 출력하세요.
+let koreanScore = 85;
+let mathScore = 75;
+koreanScore = 85 + 5;
+mathScore = 75 - 10;
+let isPassed = koreanScore > 80 && mathScore > 80;
+console.log(isPassed); //false
+
+// quantity 변수에 문자열 '50'을, unitPrice 변수에 숫자 1500을 할당하세요.
+// totalPrice 변수를 선언하고, quantity와 unitPrice를 곱한 값을 할당하세요.
+// totalPrice의 값과 자료형을 console.log()로 각각 출력하세요.
+// 예상치 못한 결과가 나왔다면, quantity를 Number() 함수를 이용해 숫자로 명시적 형변환한 후 다시 계산하고 출력하세요.
+let quantity = "50";
+let unitPrice = 1500;
+let totalPrice = quantity * unitPrice;
+console.log(totalPrice); // 예상, 문자 50을 숫자로 변환후 자동 계산
+console.log(typeof totalPrice);
+
+// 개인 정보를 기반으로 요약 문장을 만드는 프로그램을 작성해 보세요.
+// name 변수에 '김민준'을, birthYear 변수에 2000을 할당하세요.
+// currentYear 변수에 2025를 할당하세요.
+// age1 변수를 선언하고, currentYear에서 birthYear를 뺀 값을 할당하세요.
+// 템플릿 리터럴을 사용하여 "[이름]님은 올해로 [나이]살입니다." 형식의 문장을 만들어 출력하세요.
+let name = "김민준";
+let birthYear = 2000;
+let currentYear = 2025;
+let age1 = currentYear - birthYear;
+console.log(`${name}님은 올해로 ${age1}살입니다.`);
