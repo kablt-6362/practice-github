@@ -23,13 +23,9 @@ console.log(sum);
 // TODO: 비교 연산자
 // 100이 50보다 큰지 비교 결과를 출력한다
 // 문자열 "100"과 숫자 100을 엄격하게 비교한 결과를 출력한다
-let bigNum1 = 50;
-let bigNum2 = 100;
-let str = "100";
-let bool1 = bigNum1 < bigNum2;
-let bool2 = bigNum2 === str;
-console.log(bool1);
-console.log(bool2);
+
+console.log(100 > 50);
+console.log(100 === "100");
 
 /* 출력 결과
 true
@@ -38,12 +34,9 @@ false
 
 // TODO: typeof 연산자
 // "hello", 2024, true의 자료형을 각각 출력한다
-let str2 = "hello";
-let year = 2024;
-let bool3 = true;
-console.log(typeof str);
-console.log(typeof year);
-console.log(typeof bool3);
+console.log(typeof "hello");
+console.log(typeof 2024);
+console.log(typeof true);
 
 /* 출력 결과
 string
@@ -67,10 +60,8 @@ console.log(`상품: ${productName}, 가격: ${productPrice}원`);
 // isMember와 hasCoupon의 AND, OR 연산 결과를 각각 출력한다
 let isMember = true;
 let hasCoupon = false;
-let boolAnd = isMember && hasCoupon;
-let boolOr = isMember || hasCoupon;
-console.log(boolAnd);
-console.log(boolOr);
+console.log(isMember && hasCoupon);
+console.log(isMember || hasCoupon);
 
 /* 출력 결과
 false
@@ -92,10 +83,7 @@ console.log(score);
 
 // TODO: 나머지 연산자
 // 25를 4로 나눈 나머지를 출력한다
-let NumOne = 25;
-let NumSec = 4;
-let answer = NumOne % NumSec;
-console.log(answer);
+console.log(25 % 4);
 
 /* 출력 결과
 1
