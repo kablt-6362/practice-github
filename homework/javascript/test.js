@@ -234,3 +234,88 @@ console.log(result17);
 let numbers7 = [6, 7, 8, 9, 12, 25];
 let result18 = transformNumbersArrow(numbers7);
 console.log(result18);
+// ---------------------------------------
+function classifyStudentsByGrade(arr) {
+  let newArr = { A: [], B: [], C: [], D: [] };
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]["score"] >= 90) {
+      newArr["A"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 80) {
+      newArr["B"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 70) {
+      newArr["C"].push(arr[i]["name"]);
+    } else {
+      newArr["D"].push(arr[i]["name"]);
+    }
+  }
+  return newArr;
+}
+// 화살표 함수 정의 코드
+const classifyStudentsByGradeArrow = (arr) => {
+  let newArr = { A: [], B: [], C: [], D: [] };
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]["score"] >= 90) {
+      newArr["A"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 80) {
+      newArr["B"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 70) {
+      newArr["C"].push(arr[i]["name"]);
+    } else {
+      newArr["D"].push(arr[i]["name"]);
+    }
+  }
+  return newArr;
+};
+// 함수 호출 코드
+let students3 = [
+  { name: "김철수", score: 95 },
+  { name: "이영희", score: 87 },
+  { name: "박민수", score: 76 },
+  { name: "최지영", score: 65 },
+  { name: "홍길동", score: 92 },
+];
+let result13 = classifyStudentsByGrade(students3);
+console.log(result13);
+
+let students4 = [
+  { name: "김영수", score: 88 },
+  { name: "이민정", score: 72 },
+  { name: "박준호", score: 94 },
+];
+let result14 = classifyStudentsByGradeArrow(students4);
+console.log(result14);
+// ------------------------------------
+function countElements(arr) {
+  let newArr = {};
+  for (let i = 0; i < arr.length; i++) {
+    let checkArr = arr[i];
+    if (newArr[checkArr]) {
+      newArr[checkArr] += 1;
+    } else {
+      newArr[checkArr] = 1;
+    }
+  }
+  return newArr;
+}
+
+// 화살표 함수 정의 코드
+const countElementsArrow = (arr) => {
+  let newArr = {};
+  for (let i = 0; i < arr.length; i++) {
+    let checkArr = arr[i];
+    if (newArr[checkArr]) {
+      newArr[checkArr] += 1;
+    } else {
+      newArr[checkArr] = 1;
+    }
+  }
+  return newArr;
+};
+// 함수 호출 코드
+let fruits1 = ["apple", "banana", "apple", "orange", "banana", "apple"];
+let result15 = countElements(fruits1);
+console.log(result15);
+
+let numbers5 = [1, 2, 3, 2, 1, 3, 1, 4];
+let result16 = countElementsArrow(numbers5);
+console.log(result16);

@@ -44,7 +44,7 @@ function getEvenNumbers(arr) {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 2 === 0) {
-      newArr[i].push(arr[i]);
+      newArr.push(arr[i]);
     }
   }
   return newArr;
@@ -54,7 +54,7 @@ const getEvenNumbersArrow = (arr) => {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 2 === 0) {
-      newArr[i].push(arr[i]);
+      newArr.push(arr[i]);
     }
   }
   return newArr;
@@ -307,9 +307,37 @@ console.log(result18);
 // 함수명: classifyStudentsByGrade (함수 선언식), classifyStudentsByGradeArrow (화살표 함수)
 
 // 함수 선언식 정의 코드
-
+function classifyStudentsByGrade(arr) {
+  let newArr = { A: [], B: [], C: [], D: [] };
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]["score"] >= 90) {
+      newArr["A"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 80) {
+      newArr["B"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 70) {
+      newArr["C"].push(arr[i]["name"]);
+    } else {
+      newArr["D"].push(arr[i]["name"]);
+    }
+  }
+  return newArr;
+}
 // 화살표 함수 정의 코드
-
+const classifyStudentsByGradeArrow = (arr) => {
+  let newArr = { A: [], B: [], C: [], D: [] };
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]["score"] >= 90) {
+      newArr["A"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 80) {
+      newArr["B"].push(arr[i]["name"]);
+    } else if (arr[i]["score"] >= 70) {
+      newArr["C"].push(arr[i]["name"]);
+    } else {
+      newArr["D"].push(arr[i]["name"]);
+    }
+  }
+  return newArr;
+};
 // 함수 호출 코드
 let students3 = [
   { name: "김철수", score: 95 },
@@ -340,8 +368,34 @@ console.log(result14);
 
 // 함수 선언식 정의 코드
 
+// return 할 빈 객체를 생성한다.
+// 반복문을 통해 기존 배열의 인덱스 값이 생성한 객체의 키값으로 있는지
+// 볼리언을 통해 확인하고. 있으면 그 키의 벨류값에 +1을, 없으면 그 키의 속성을 추가하고 벨류를1로 해준다
+function countElements(arr) {
+  let newArr = {};
+  for (let i = 0; i < arr.length; i++) {
+    let checkArr = arr[i];
+    if (newArr[checkArr]) {
+      newArr[checkArr] += 1;
+    } else {
+      newArr[checkArr] = 1;
+    }
+  }
+  return newArr;
+}
 // 화살표 함수 정의 코드
-
+const countElementsArrow = (arr) => {
+  let newArr = {};
+  for (let i = 0; i < arr.length; i++) {
+    let checkArr = arr[i];
+    if (newArr[checkArr]) {
+      newArr[checkArr] += 1;
+    } else {
+      newArr[checkArr] = 1;
+    }
+  }
+  return newArr;
+};
 // 함수 호출 코드
 let fruits1 = ["apple", "banana", "apple", "orange", "banana", "apple"];
 let result15 = countElements(fruits1);
