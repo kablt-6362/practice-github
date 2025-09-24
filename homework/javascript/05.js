@@ -179,9 +179,9 @@ async function prductPrice() {
   const res = await axios.get(`${BASE_URL}/products`);
   const data = res["data"]["products"];
   data.sort((a, b) => b.price - a.price);
-  console.log(data);
+  console.log(data[0].price); // sort는 data의 첫번째 인덱스를 변수로 가짐. 뒤에 '.'을 써서 price에 접근함
 }
-// prductPrice();다르게 나옴
+prductPrice();
 /* 출력 결과
 {
   products: [
@@ -248,7 +248,7 @@ async function cartUserId(num) {
   const data = res["data"];
   console.log(data);
 }
-cartUserId(6);
+// cartUserId(6);
 /* 출력 결과
 {
   carts: [
