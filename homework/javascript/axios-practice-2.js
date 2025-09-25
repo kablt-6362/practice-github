@@ -76,7 +76,7 @@ async function postList() {
 
   console.log(response);
 }
-postList();
+// postList();
 /* 출력 결과
 [
   "history",
@@ -103,6 +103,10 @@ postList();
 // 아래 요구사항을 참고하여 코드를 작성한다
 // 1. 특정 태그의 게시글(posts) 목록 조회 요청
 // 2. 응답 데이터를 출력한다
+async function postTag() {
+  const res = await axios.get(`${BASE_URL}/posts`);
+  const data = res["data"];
+}
 /* 출력 결과
 // life 태그 게시글
 {
