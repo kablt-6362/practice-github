@@ -40,8 +40,9 @@ export default function Container() {
   //다음으로
   function goNext() {
     let count;
+    // -- 강사님 코드 --
     //LIMIT 상수 이용해서 간단히 표현 가능
-    // setSkip(skip + LIMIT), 이전도 동일하게 가능
+    // setSkip(skip + LIMIT), 이전(함수)도 동일하게 가능
     // if(skip-LIMIT>0)이면 setSkip실행, 아니면 경고 or 다른대처
     if (skip < 250) {
       count = skip + 5;
