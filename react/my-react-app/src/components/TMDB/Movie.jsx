@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Movie({ props }) {
   console.log(props);
+  //props 는 받아온 정보의 객체배열중 하나
   return (
     <div>
       <ul>
