@@ -70,6 +70,144 @@ export default function MovieSearch() {
           return <Movie key={event.id} props={event} />;
         })}
       </ul>
+      <form
+        onSubmit={(event) => {
+          fetchData(event);
+          // form 태그의 onSubmit 속성에서 실행할 함수를 정의하고, 호출한다
+        }}
+      >
+        <input
+          type="text"
+          placeholder="영화 이름"
+          onChange={(event) => {
+            handleChange(event);
+            // input 태그의 onChange 속성에서 실행할 함수를 정의하고, 호출한다
+          }}
+        />
+        <input type="submit" value="검색" />
+      </form>
+      <ul>
+        {/* Movie 컴포넌트를 활용하여 검색된 영화 데이터를 반복 생성하여 표시 */}
+        {/* {movies} */}
+        {movies.map((event) => {
+          return <Movie key={event.id} props={event} />;
+        })}
+      </ul>
+      <form
+        onSubmit={(event) => {
+          fetchData(event);
+          // form 태그의 onSubmit 속성에서 실행할 함수를 정의하고, 호출한다
+        }}
+      >
+        <input
+          type="text"
+          placeholder="영화 이름"
+          onChange={(event) => {
+            handleChange(event);
+            // input 태그의 onChange 속성에서 실행할 함수를 정의하고, 호출한다
+          }}
+        />
+        <input type="submit" value="검색" />
+      </form>
+      <ul>
+        {/* Movie 컴포넌트를 활용하여 검색된 영화 데이터를 반복 생성하여 표시 */}
+        {/* {movies} */}
+        {movies.map((event) => {
+          return <Movie key={event.id} props={event} />;
+        })}
+      </ul>
+      <form
+        onSubmit={(event) => {
+          fetchData(event);
+          // form 태그의 onSubmit 속성에서 실행할 함수를 정의하고, 호출한다
+        }}
+      >
+        <input
+          type="text"
+          placeholder="영화 이름"
+          onChange={(event) => {
+            handleChange(event);
+            // input 태그의 onChange 속성에서 실행할 함수를 정의하고, 호출한다
+          }}
+        />
+        <input type="submit" value="검색" />
+      </form>
+      <ul>
+        {/* Movie 컴포넌트를 활용하여 검색된 영화 데이터를 반복 생성하여 표시 */}
+        {/* {movies} */}
+        {movies.map((event) => {
+          return <Movie key={event.id} props={event} />;
+        })}
+      </ul>
+      <form
+        onSubmit={(event) => {
+          fetchData(event);
+          // form 태그의 onSubmit 속성에서 실행할 함수를 정의하고, 호출한다
+        }}
+      >
+        <input
+          type="text"
+          placeholder="영화 이름"
+          onChange={(event) => {
+            handleChange(event);
+            // input 태그의 onChange 속성에서 실행할 함수를 정의하고, 호출한다
+          }}
+        />
+        <input type="submit" value="검색" />
+      </form>
+      <ul>
+        {/* Movie 컴포넌트를 활용하여 검색된 영화 데이터를 반복 생성하여 표시 */}
+        {/* {movies} */}
+        {movies.map((event) => {
+          return <Movie key={event.id} props={event} />;
+        })}
+      </ul>
+      <form
+        onSubmit={(event) => {
+          fetchData(event);
+          // form 태그의 onSubmit 속성에서 실행할 함수를 정의하고, 호출한다
+        }}
+      >
+        <input
+          type="text"
+          placeholder="영화 이름"
+          onChange={(event) => {
+            handleChange(event);
+            // input 태그의 onChange 속성에서 실행할 함수를 정의하고, 호출한다
+          }}
+        />
+        <input type="submit" value="검색" />
+      </form>
+      <ul>
+        {/* Movie 컴포넌트를 활용하여 검색된 영화 데이터를 반복 생성하여 표시 */}
+        {/* {movies} */}
+        {movies.map((event) => {
+          return <Movie key={event.id} props={event} />;
+        })}
+      </ul>
+      <form
+        onSubmit={(event) => {
+          fetchData(event);
+          // form 태그의 onSubmit 속성에서 실행할 함수를 정의하고, 호출한다
+        }}
+      >
+        <input
+          type="text"
+          placeholder="영화 이름"
+          onChange={(event) => {
+            handleChange(event);
+            // input 태그의 onChange 속성에서 실행할 함수를 정의하고, 호출한다
+          }}
+        />
+        <input type="submit" value="검색" />
+      </form>
+      <ul>
+        {/* Movie 컴포넌트를 활용하여 검색된 영화 데이터를 반복 생성하여 표시 */}
+        {/* {movies} */}
+        {movies.map((event) => {
+          return <Movie key={event.id} props={event} />;
+        })}
+      </ul>
     </div>
   );
 }
