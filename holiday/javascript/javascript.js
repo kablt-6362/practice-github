@@ -216,6 +216,9 @@ console.log(result2);
 // 변수 hasPermission을 선언하고, 불리언 데이터 true를 할당한다
 // 상수 accessResult를 선언하고, hasPermission이 true라면 "접근 허용"을 할당하고, 아니라면 "접근 거부"를 할당한다
 // 그리고 상수 accessResult를 출력한다
+let hasPermission = true;
+const accessResult = hasPermission === true ? "접근허용" : "접근 거부";
+console.log(accessResult);
 
 /* 출력 결과
 접근 허용
@@ -229,9 +232,9 @@ function XXX(YYY) {
   return ZZZ;
 }
 
-XXX :
-YYY :
-ZZZ :
+XXX : 함수 객체의 이름
+YYY : 매개변수
+ZZZ : 함수 반환값
 */
 
 // 문제 [실습]
@@ -242,6 +245,10 @@ function greet(name) {
   return `안녕하세요, ${name}님!`;
 }
 */
+const greet = (name) => {
+  return `안녕하세요, ${name}님!`;
+};
+console.log(greet("홍길"));
 
 // 문제 [실습]
 // 아래 함수 선언식 코드를 화살표 함수로 변경한다
@@ -251,6 +258,9 @@ function multiply(a, b) {
   return a * b;
 }
 */
+const multiply = (a, b) => {
+  return a * b;
+};
 
 // 문제 [실습]
 // 아래 설명을 보고 함수를 구현한다.(함수 선언식으로 구현한다)
@@ -259,12 +269,21 @@ function multiply(a, b) {
 // 반환값: 두 숫자 중 더 큰 숫자
 // 두 숫자가 같으면 "같다"를 반환한다
 // 함수 작성 후 아래 주석 처리된 테스트 코드의 주석을 해제하고 실행하여 출력 결과를 비교한다
+const compareNumbers = (num1, num2) => {
+  let result;
+  if (num1 > num2) {
+    result = num1;
+  } else if (num1 < num2) {
+    result = num2;
+  } else {
+    result = "같다";
+  }
+  return result;
+};
 
-/*
 console.log(compareNumbers(5, 10)); // 10
 console.log(compareNumbers(15, 5)); // 15
 console.log(compareNumbers(10, 10)); // 같다
-*/
 
 // 문제 [실습]
 // 아래 설명을 보고 함수를 구현한다.(함수 선언식으로 구현한다)
