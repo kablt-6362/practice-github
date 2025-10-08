@@ -291,6 +291,7 @@ console.log(compareNumbers(10, 10)); // 같다
 // 매개변수: num
 // 반환값: 매개변수 num의 절댓값
 // 함수 작성 후 아래 주석 처리된 테스트 코드의 주석을 해제하고 실행하여 출력 결과를 비교한다
+// const naver =asd
 
 /*
 console.log(getAbsoluteValue(-5)); // 5
