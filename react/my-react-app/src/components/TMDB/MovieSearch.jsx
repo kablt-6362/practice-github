@@ -73,3 +73,8 @@ export default function MovieSearch() {
     </div>
   );
 }
+ // 내가 검색한 것에대한 정보를 관리하는 상태.
+  // input에 검색할 영화 이름을 입력하면, 압력하는 이벤트를 input의 onchange가 받아 이벤트의
+  // 대상의 value를 search에 할당(setSrarch)하므로서 내가 입력한 영화 이름을 상태 변수에 저장한것 // 내가 검색한 것에대한 정보를 관리하는 상태.
+  // input에 검색할 영화 이름을 입력하면, 압력하는 이벤트를 input의 onchange가 받아 이벤트의
+  // 대상의 value를 search에 할당(setSrarch)하므로서 내가 입력한 영화 이름을 상태 변수에 저장한것
