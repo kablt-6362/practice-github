@@ -1,10 +1,12 @@
 import React from "react";
-import MovieSearch from "./components/TMDB/MovieSearch";
+import ListContainer from "./components/PropsList/ListCotainer";
+import Container from "./components/GuessRandomNumber/Container";
+import Component from "./components/Usememo/Component";
 
 export default function App() {
   return (
     <div>
-      <MovieSearch></MovieSearch>
+      <Component></Component>
     </div>
   );
 }
