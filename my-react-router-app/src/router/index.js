@@ -26,23 +26,23 @@ const router = createBrowserRouter([
     Component: dummyLayout,
     children: [
       {
-        path: "cart",
+        path: PATHS.DUMMY.CART,
         Component: Carts,
       },
       {
-        path: "posts",
+        path: PATHS.DUMMY.POST,
         Component: Posts,
       },
       {
-        path: "products",
+        path: PATHS.DUMMY.PRODUCTS,
         Component: Products,
       },
       {
-        path: "posts/:postId",
+        path: PATHS.DUMMY.getPostDetail(postId),
         Component: PostDetail,
       },
       {
-        path: "products/:productId",
+        path: PATHS.DUMMY.getProductsDetail(productsId),
         Component: ProductDetail,
       },
     ],

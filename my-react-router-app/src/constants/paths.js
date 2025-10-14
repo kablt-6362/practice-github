@@ -9,6 +9,13 @@ const PATHS = {
   },
   DUMMY: {
     INDX: "/dummy",
+    CART: "cart",
+    POST: "posts",
+    PRODUCTS: "products",
+    PRODUC_DETAIL: "products/:productId",
+    getProductsDetail: (productsId) => `products/${productsId}`,
+    POSTS_DETAIL: "posts/:postId",
+    getPostDetail:(postId)=>`posts/${postId}`,
     
   },
 };

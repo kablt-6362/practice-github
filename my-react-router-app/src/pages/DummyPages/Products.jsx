@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductsList from "../../components/ProductsList";
 import { useSearchParams } from "react-router-dom";
+import PATHS from "../../constants/paths";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -70,9 +71,15 @@ export default function Products() {
       <div>
         {products.map((element) => {
           return (
-            <Link key={element.id} to={`/dummy/products/${element.id}`}>
-              Product ID:{element.id} - Product Price{element.price}
-              <br />
+            // <Link key={element.id} to={`/dummy/products/${element.id}`}>
+            //   Product ID:{element.id} - Product Price{element.price}
+            //   <br />
+            // </Link>
+            <Link
+              key={element.id}
+              to={PATHS.DUMMY.getProductsDetail(element.id)}
+            >
+              Product ID:{element.id} - Product Price{element.price} <br />
             </Link>
           );
         })}
