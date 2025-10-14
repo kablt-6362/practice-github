@@ -8,10 +8,11 @@ import PostDetail from "../pages/DummyPages/PostDetail.jsx";
 import { Component } from "react";
 import RootLayout from "../layout/RootLayout.jsx";
 import dummyLayout from "../layout/dummyLayout.jsx";
+import PATHS from "../constants/paths.js";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: PATHS.ROOT.INDEX,
     Component: RootLayout,
     children: [
       {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dummy",
+    path: PATHS.DUMMY.index,
     Component: dummyLayout,
     children: [
       {
