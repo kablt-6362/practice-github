@@ -58,6 +58,12 @@ export default function Products() {
           onClick={() => {
             if (Number(skip) + 5 <= total) {
               setSearchPaeams({ skip: Number(skip) + 5, order, sortBy });
+              /*
+              setSeatchParams((searchParams)=>{
+                searchParams.set("skip", NUmber(skip)+5)
+                return searchParams;
+                });
+              */
             }
           }}
         >
