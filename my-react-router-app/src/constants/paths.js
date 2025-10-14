@@ -5,18 +5,16 @@ const PATHS = {
   ROOT: {
     // RootLayout의 기본(진입) 경로
     INDEX: "/",
-
   },
   DUMMY: {
-    INDX: "/dummy",
-    CART: "cart",
-    POST: "posts",
-    PRODUCTS: "products",
-    PRODUC_DETAIL: "products/:productId",
+    INDEX: "/dummy",
+    CART: "/dummy/cart",
+    POST: "/dummy/posts",
+    PRODUCTS: "/dummy/products",
+    PRODUCT_DETAIL: "/dummy/products/:productId",
     getProductsDetail: (productsId) => `products/${productsId}`,
-    POSTS_DETAIL: "posts/:postId",
-    getPostDetail:(postId)=>`posts/${postId}`,
-    
+    POSTS_DETAIL: "/dummy/posts/:postId",
+    getPostDetail: (postId) => `posts/${postId}`,
   },
 };
 
