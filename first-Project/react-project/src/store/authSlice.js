@@ -1,6 +1,67 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Thunk는 비동기처리할 함수 생성과 비동기처리 로직
-// Slice는 THunk에따른 객체 state변화 적용?
+// Slice는 Thunk에따른 객체 state변화 적용?
+import axios from "axios";
+
+// 사용할 url,adon key 환경변수에서 불러오기
+const SUPABASE_URL = import.meta.env.VITE_SUSPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+//Thunk만들기 signup,login,logout
+//signup
+const signUp = createAsyncThunk(
+  "auth/signup",
+  async (data, { rejectWithValue }) => {
+    try {
+      const config = {
+        url: `${SUPABASE_URL}/auth/v1/signup`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+        },
+        data: {
+          email: data.email,
+          password: data.password,
+        },
+      };
+      const response = await axios(config);
+      return response.data;
+      //서버 데이터 POST 요청
+    } catch (error) {
+      //에러뜨면 에러메세지 리턴
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+//login Thunk만들기
+const login = createAsyncThunk(
+  "auth/login",
+  async (data, { rejectWithValue }) => {
+    try {
+      const config = {
+        url: `${SUPABASE_URL}/auth/v1/token?grant_type=password
+        `,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+        },
+        data: {
+          email: data.email,
+          password: data.password,
+        },
+      };
+      // 오류지점
+      const response = await axios(config);
+      return response.data;
+    } catch (error) {
+      console.log(error.response.data);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 const userData = {
   token: null,
@@ -18,9 +79,16 @@ const authSlice = createSlice({
     //
   },
   extraReducers: (builder) => {
-    builder;
+    builder
+      .addCase(signUp.fulfilled, (state) => {
+        state.isSignupSuccess = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.token = action.payload["access_token"];
+      });
   },
 });
 
 export default authSlice.reducer;
 export const { resetSignupSuccess } = authSlice.actions;
+export { signUp, login };
