@@ -3,14 +3,17 @@ import PATHS from "../Path/paths";
 import { useSelector } from "react-redux";
 import { logout } from "../store/authSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function RootLayout() {
   const token = useSelector((state) => state.auth.token);
   const dispath = useDispatch();
+  const navigate = useNavigate();
 
   function handleLogout() {
     dispath(logout());
     alert("로그아웃 되었습니다.메인 페이지로 이동합니다");
+    navigate(PATHS.INDEX);
   }
 
   return (
