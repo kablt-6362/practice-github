@@ -39,8 +39,6 @@ export default function RootLayout() {
               <Link to={PATHS.SIGNUP}>회원 가입</Link>
             </>
           )}
-          {/* <Link to={PATHS.LOGIN}>로그인</Link>
-          <Link to={PATHS.SIGNUP}>회원 가입</Link> */}
         </div>
       </div>
       <div>
