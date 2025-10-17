@@ -19,7 +19,7 @@ export default function Login() {
   useEffect(() => {
     if (token) {
       alert("로그인에 성공하였습니다");
-      console.log(token);
+
       navigata(PATHS.MEMOCREAT);
     }
   }, [token]);

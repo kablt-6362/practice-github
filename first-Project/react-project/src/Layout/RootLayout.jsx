@@ -1,9 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
 import PATHS from "../Path/paths";
 import { useSelector } from "react-redux";
+import { logout } from "../store/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function RootLayout() {
   const token = useSelector((state) => state.auth.token);
+  const dispath = useDispatch();
+
+  function handleLogout() {
+    dispath(logout());
+    alert("로그아웃 되었습니다.메인 페이지로 이동합니다");
+  }
 
   return (
     <div>
@@ -15,7 +23,13 @@ export default function RootLayout() {
         </div>
         <div className="flex gap-2">
           {token !== null ? (
-            <button>로그아웃</button>
+            <button
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              로그아웃
+            </button>
           ) : (
             <>
               <Link to={PATHS.LOGIN}>로그인</Link>

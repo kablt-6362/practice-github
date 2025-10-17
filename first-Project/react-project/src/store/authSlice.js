@@ -53,11 +53,33 @@ const login = createAsyncThunk(
           password: data.password,
         },
       };
-      // 오류지점
+      // 오류지점--해결(메일링크 확인안함)
       const response = await axios(config);
       return response.data;
     } catch (error) {
       console.log(error.response.data);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+// 로그아웃
+const logout = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const config = {
+        url: `${SUPABASE_URL}/auth/v1/logout`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${getState().auth.token}`,
+        },
+      };
+      const response = await axios(config);
+      return response.data;
+    } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
@@ -85,10 +107,13 @@ const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.token = action.payload["access_token"];
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.token = null;
       });
   },
 });
 
 export default authSlice.reducer;
 export const { resetSignupSuccess } = authSlice.actions;
-export { signUp, login };
+export { signUp, login, logout };
