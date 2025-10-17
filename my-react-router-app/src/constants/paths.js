@@ -12,9 +12,11 @@ const PATHS = {
     POST: "/dummy/posts",
     PRODUCTS: "/dummy/products",
     PRODUCT_DETAIL: "/dummy/products/:productId",
-    getProductsDetail: (productsId) => `products/${productsId}`,
+    getProductsDetail: (productsId) => `/dummy/products/${productsId}`,
     POSTS_DETAIL: "/dummy/posts/:postId",
-    getPostDetail: (postId) => `posts/${postId}`,
+    getPostDetail: (postId) => `/dummy/posts/${postId}`,
+    CART_DETAIL: "/dummy/carts/:cartID",
+    getCartDetail: (cartId) => `carts/${cartId}`,
   },
 };
 

@@ -121,9 +121,9 @@ export default function Products() {
         })}
       </div>
       <div className="flex gap-2">
-        <p>기준</p>
-        <p>오름or내림차순</p>
-        <p>페이지</p>
+        <p>정렬 기준:{sortBy}</p>
+        <p>정렬 순서:{order}</p>
+        <p>페이지:{skip / 5 + 1}</p>
       </div>
     </div>
   );

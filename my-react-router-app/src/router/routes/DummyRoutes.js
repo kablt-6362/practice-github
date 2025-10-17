@@ -5,6 +5,8 @@ import Posts from "../../pages/DummyPages/Posts";
 import Products from "../../pages/DummyPages/Products";
 import ProductDetail from "../../pages/DummyPages/ProductDetail";
 import PostDetail from "../../pages/DummyPages/PostDetail";
+import { Component } from "react";
+import CartDetail from "../../pages/DummyPages/CartDetail";
 
 const dummyRoutes = [
   {
@@ -31,6 +33,10 @@ const dummyRoutes = [
         path: PATHS.DUMMY.PRODUCT_DETAIL,
         Component: ProductDetail,
       },
+      {
+        path: PATHS.DUMMY.CART_DETAIL,
+        Component:CartDetail,
+      }
     ],
   },
 ];

@@ -16,10 +16,10 @@ import DummyRoutes from "../router/routes/DummyRoutes.js";
 const router = createBrowserRouter([
   ...RootRoutes,
   ...DummyRoutes,
-  {
-    path: "*",
-    Component: NotFound,
-  },
+  // {
+  //   path: "*",
+  //   Component: NotFound,
+  // },
 ]);
 
 export default router;

@@ -11,13 +11,16 @@ export default function PostDetail() {
     async function getPost() {
       const res = await axios(`https://dummyjson/posts/${postId}`);
       setPost(res.data);
+
+      console.log(res);
     }
     getPost();
+    console.log(posts);
   }, [postId]);
 
   return (
     <div>
-      <div>postId:{posts.id}</div>
+      <div>postId:</div>
     </div>
   );
 }
