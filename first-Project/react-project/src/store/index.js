@@ -34,3 +34,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+//저장소,슬라이스,라우터
