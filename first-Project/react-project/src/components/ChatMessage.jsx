@@ -9,7 +9,7 @@ export default function ChatMessage({ message }) {
   const isAi = message.role === "ai";
 
   return (
-    <div className={`${isUser ? "justify-end" : "justify-start"}`}>
+    <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
       {isAi ? (
         <div>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>

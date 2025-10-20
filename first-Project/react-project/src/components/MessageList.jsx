@@ -11,10 +11,11 @@ export default function MessageList({ message }) {
   }, [message]);
 
   return (
-    <div>
+    <div className="flex overflow-y-auto p-4">
       사용자 질문, ai응답 나타내는 컴포넌트
       {/* MessageList 는 chatMessage를 반환한다.
        */}
+      <br />
       {message.map((message, index) => {
         return <ChatMessage key={index} message={message}></ChatMessage>;
       })}

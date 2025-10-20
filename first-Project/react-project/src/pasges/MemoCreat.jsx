@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PATHS from "../Path/paths";
+import { addAiResponse } from "../store/authSlice";
+import { useDispatch } from "react-redux";
 import ChatForm from "../components/ChatForm";
 import MessageList from "../components/MessageList";
+import { ai } from "../utils/genai";
 
 export default function MemoCreat() {
   const token = useSelector((state) => state.auth.token);
@@ -12,14 +15,15 @@ export default function MemoCreat() {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([]);
   const [isloading, setisLoading] = useState(false);
+  const dispatch = useDispatch();
 
   //handle 함수
   async function handleSubmit(event) {
     event.preventDefault();
-    if (isloading === true || prompt.trim === "") {
+    if (isloading === true || prompt.trim() === "") {
       return;
     }
-    setMessages((prev) => [...prev, , { role: "user", content: prompt }]);
+    setMessages((prev) => [...prev, { role: "user", content: prompt }]);
 
     setPrompt("");
     setisLoading(true);
@@ -31,10 +35,12 @@ export default function MemoCreat() {
   async function generateAIContent() {
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-2.5.flash",
+        model: "gemini-2.5-flash",
         contents: prompt,
       });
-      setMessages((prev) => [...prev, { role: "ai", content: response.data }]);
+      setMessages((prev) => [...prev, { role: "ai", content: response.text }]);
+      // 응답 내용을 저장하는 함수
+      dispatch(addAiResponse({ content: response.text }));
     } catch (error) {
       return console.error(error);
     }
@@ -52,7 +58,7 @@ export default function MemoCreat() {
     <div>
       {/* 메세지 리스트, chat폼, chat메세지 */}
       <div>
-        <MessageList mseesage={messages}></MessageList>
+        <MessageList message={messages}></MessageList>
       </div>
       <div>
         <ChatForm

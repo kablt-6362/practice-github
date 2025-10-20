@@ -89,6 +89,7 @@ const userData = {
   token: null,
   error: null,
   isSignupSuccess: false,
+  memotitle: [],
 };
 
 const authSlice = createSlice({
@@ -97,6 +98,12 @@ const authSlice = createSlice({
   reducers: {
     resetSignupSuccess: (state) => {
       state.isSignupSuccess = false;
+    },
+    addAiResponse: (state, action) => {
+      state.memotitle.push({
+        id: Date.now(),
+        content: action.payload.content,
+      });
     },
     //
   },
@@ -115,5 +122,5 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { resetSignupSuccess } = authSlice.actions;
+export const { resetSignupSuccess, addAiResponse } = authSlice.actions;
 export { signUp, login, logout };
