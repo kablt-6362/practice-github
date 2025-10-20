@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import ChatForm from "../components/ChatForm";
 import MessageList from "../components/MessageList";
 import { ai } from "../utils/genai";
+import { config } from "../utils/genai";
 
 export default function MemoCreat() {
   const token = useSelector((state) => state.auth.token);
@@ -16,6 +17,7 @@ export default function MemoCreat() {
   const [messages, setMessages] = useState([]);
   const [isloading, setisLoading] = useState(false);
   const dispatch = useDispatch();
+
 
   //handle 함수
   async function handleSubmit(event) {
@@ -37,10 +39,10 @@ export default function MemoCreat() {
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
         contents: prompt,
+        config: config,
       });
       setMessages((prev) => [...prev, { role: "ai", content: response.text }]);
       // 응답 내용을 저장하는 함수
-      dispatch(addAiResponse({ content: response.text }));
     } catch (error) {
       return console.error(error);
     }

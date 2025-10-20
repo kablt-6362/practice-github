@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { logout } from "../store/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { clearMemoTitle } from "../store/authSlice";
 
 export default function RootLayout() {
   const token = useSelector((state) => state.auth.token);
@@ -14,6 +15,9 @@ export default function RootLayout() {
     dispath(logout());
     alert("로그아웃 되었습니다.메인 페이지로 이동합니다");
     navigate(PATHS.INDEX);
+  }
+  function handleClearTitle() {
+    dispath(clearMemoTitle());
   }
 
   return (
@@ -50,12 +54,20 @@ export default function RootLayout() {
           </div>
           <div className="flex gap-4 items-center">
             {token !== null ? (
-              <button
-                onClick={handleLogout}
-                className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
-              >
-                로그아웃
-              </button>
+              <div className="flex gap-2">
+                <button
+                  className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
+                  onClick={handleClearTitle}
+                >
+                  목록 초기화
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
+                >
+                  로그아웃
+                </button>
+              </div>
             ) : (
               <>
                 <Link

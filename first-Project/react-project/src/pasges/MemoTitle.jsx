@@ -1,12 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { clearMemoTitle } from "../store/authSlice";
 
 export default function MemoTitle() {
   const memotitle = useSelector((state) => state.auth.memotitle);
+  const token = useSelector((state) => state.auth.token);
+
   return (
     <div className="p-8 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">메모 목록</h1>
-      {memotitle.length > 0 ? (
+      {memotitle.length > 0 && token !== null ? (
         <ul className="space-y-4">
           {memotitle.map((ele, index) => {
             return (

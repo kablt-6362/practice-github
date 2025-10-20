@@ -105,6 +105,9 @@ const authSlice = createSlice({
         content: action.payload.content,
       });
     },
+    clearMemoTitle: (state) => {
+      state.memotitle = [];
+    },
     //
   },
   extraReducers: (builder) => {
@@ -122,5 +125,6 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { resetSignupSuccess, addAiResponse } = authSlice.actions;
+export const { resetSignupSuccess, addAiResponse, clearMemoTitle } =
+  authSlice.actions;
 export { signUp, login, logout };
