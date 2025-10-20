@@ -1,12 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PATHS from "../Path/paths";
+import ChatForm from "../components/ChatForm";
+import MessageList from "../components/MessageList";
 
 export default function MemoCreat() {
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
+  const [prompt, setPrompt] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [isloading, setisLoading] = useState(false);
+
+  //handle 함수
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (isloading === true || prompt.trim === "") {
+      return;
+    }
+    setMessages((prev) => [...prev, , { role: "user", content: prompt }]);
+
+    setPrompt("");
+    setisLoading(true);
+    //ai응답 비동기함수
+    await generateAIContent();
+    setisLoading(false);
+  }
+
+  async function generateAIContent() {
+    try {
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5.flash",
+        contents: prompt,
+      });
+      setMessages((prev) => [...prev, { role: "ai", content: response.data }]);
+    } catch (error) {
+      return console.error(error);
+    }
+  }
 
   useEffect(() => {
     if (token === null) {
@@ -16,9 +48,20 @@ export default function MemoCreat() {
   }, []); // []안에 token을 넣을 필요가 없다. 다른곳 에서 메모생성으로 올때만 실행하면 비로그인을 감지할수가 있다
   // []안에 token을 넣으면 token값이 변할때마다 해당 useEffect가 발동하므로 수정전과 같이 usenavigate가 발동하는 현상이 일어난다
 
-
-  
-  return <div>
-    {/* 메세지 리스트, chat폼, chat메세지 */}
-  </div>;
+  return (
+    <div>
+      {/* 메세지 리스트, chat폼, chat메세지 */}
+      <div>
+        <MessageList mseesage={messages}></MessageList>
+      </div>
+      <div>
+        <ChatForm
+          prompt={prompt}
+          setprompt={setPrompt}
+          isloading={isloading}
+          onSubmit={handleSubmit}
+        ></ChatForm>
+      </div>
+    </div>
+  );
 }
