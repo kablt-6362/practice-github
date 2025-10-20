@@ -6,19 +6,22 @@ import remarkGfm from "remark-gfm";
 // 반환된 내용안 messagelist에 작성된다
 export default function ChatMessage({ message }) {
   const isUser = message.role === "user";
-  const isAi = message.role === "ai";
 
   return (
-    <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
-      {isAi ? (
-        <div>
+    <div className={`w-full flex ${isUser ? "justify-end" : "justify-start"}`}>
+      <div
+        className={`max-w-2xl p-3 my-2 rounded-lg ${
+          isUser ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
+        }`}
+      >
+        {isUser ? (
+          <div>{message.content}</div>
+        ) : (
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {message.content}
           </ReactMarkdown>
-        </div>
-      ) : (
-        <div>{message.content}</div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

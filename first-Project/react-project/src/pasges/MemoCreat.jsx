@@ -55,19 +55,15 @@ export default function MemoCreat() {
   // []안에 token을 넣으면 token값이 변할때마다 해당 useEffect가 발동하므로 수정전과 같이 usenavigate가 발동하는 현상이 일어난다
 
   return (
-    <div>
+    <div className="h-[calc(100vh-150px)] flex flex-col bg-white rounded-lg shadow-md">
       {/* 메세지 리스트, chat폼, chat메세지 */}
-      <div>
-        <MessageList message={messages}></MessageList>
-      </div>
-      <div>
-        <ChatForm
-          prompt={prompt}
-          setprompt={setPrompt}
-          isloading={isloading}
-          onSubmit={handleSubmit}
-        ></ChatForm>
-      </div>
+      <MessageList message={messages} />
+      <ChatForm
+        prompt={prompt}
+        setprompt={setPrompt}
+        isloading={isloading}
+        onSubmit={handleSubmit}
+      />
     </div>
   );
 }

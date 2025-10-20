@@ -34,19 +34,20 @@ export default function SingUp() {
   }, [isSignup, dispath]);
 
   return (
-    <div>
-      <div>
-        <p>회원가입</p>
-        <p>새 계정을 만들어보세요</p>
-      </div>
-      <div className="flex flex-col  gap-2">
+    <div className="flex flex-col items-center justify-center p-8">
+      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
+        <div className="text-center mb-8">
+          <p className="text-3xl font-bold text-gray-800">회원가입</p>
+          <p className="text-gray-500 mt-2">새 계정을 만들어보세요</p>
+        </div>
         <form
+          className="flex flex-col gap-4"
           onSubmit={(e) => {
             handlerSubmit(e);
           }}
         >
           <input
-            className="border-2"
+            className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -54,7 +55,7 @@ export default function SingUp() {
             placeholder="이메일 주소"
           />
           <input
-            className="border-2"
+            className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -62,17 +63,27 @@ export default function SingUp() {
             placeholder="비밀번호"
           />
           <input
-            className="border-2"
+            className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => {
               setPassCheck(e.target.value);
             }}
             type="password"
             placeholder="비밀번호 확인"
           />
-          <input className="border-2" type="submit" value="회원가입 하기" />
+          <input
+            className="p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer"
+            type="submit"
+            value="회원가입 하기"
+          />
         </form>
-        <Link to={PATHS.LOGIN}>로그인</Link>
-        <Link to={PATHS.INDEX}>처음으로</Link>
+        <div className="mt-6 text-center flex flex-col gap-2">
+          <Link to={PATHS.LOGIN} className="text-blue-500 hover:underline">
+            로그인
+          </Link>
+          <Link to={PATHS.INDEX} className="text-gray-500 hover:underline">
+            처음으로
+          </Link>
+        </div>
       </div>
     </div>
   );
