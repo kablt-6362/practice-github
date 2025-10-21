@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function MemoComplete() {
   const memotitle = useSelector((state) => state.auth.memotitle);
-  const dispatch = useDispatch();
+
   // handleToggleCompletion 정의는 유지 (완료 상태를 다시 미완료로 돌릴 수 있도록)
 
   // ⭐️ 필터링 로직: 완료(isCompleted: true) 메모만 반환

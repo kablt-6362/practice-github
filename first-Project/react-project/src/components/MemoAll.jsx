@@ -7,7 +7,9 @@ import { toggleMemoCompletion } from "../store/authSlice";
 export default function MemoAll() {
   const memotitle = useSelector((state) => state.auth.memotitle);
   const dispatch = useDispatch();
-  const handleToggleCompletion = (id) => dispatch(toggleMemoCompletion(id));
+  const handleToggleCompletion = (id) => {
+    dispatch(toggleMemoCompletion(id));
+  };
 
   // ⭐️ 필터링 로직: 모든 메모 반환
   const filteredMemos = memotitle;

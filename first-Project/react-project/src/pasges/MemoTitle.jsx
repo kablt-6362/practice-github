@@ -1,90 +1,62 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleMemoCompletion } from "../store/authSlice";
+// src/pages/MemoTitle.jsx (최종 수정본)
+
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+// ⭐️ PATHS 파일을 여기서도 import 해야 NavLink의 to 속성을 사용할 수 있습니다.
+import PATHS from "../Path/paths";
 
 export default function MemoTitle() {
-  const memotitle = useSelector((state) => state.auth.memotitle);
   const token = useSelector((state) => state.auth.token);
-  const dispatch = useDispatch();
-  const [filter, setFilter] = useState("all");
 
-  const handleToggleCompletion = (id) => {
-    dispatch(toggleMemoCompletion(id));
-  };
-
-  const filteredMemos = memotitle.filter((memo) => {
-    if (filter === "incomplete") {
-      return !memo.isCompleted;
-    }
-    if (filter === "completed") {
-      return memo.isCompleted;
-    }
-    return true;
-  });
+  if (token === null) {
+    return <p className="text-gray-500 p-8">로그인 후 메모를 확인해 주세요.</p>;
+  }
 
   return (
     <div className="p-8 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">메모 목록</h1>
+
       <div className="flex space-x-4 mb-6">
-        <button
-          onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded-lg ${
-            filter === "all"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-800"
-          }`}
+        {/* ⭐️ NavLink: PATHS 변수와 isActive를 사용하여 스타일링 */}
+        <NavLink
+          to={PATHS.MEMO_ALL}
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-lg ${
+              isActive ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
+            }`
+          }
         >
           전체
-        </button>
-        <button
-          onClick={() => setFilter("incomplete")}
-          className={`px-4 py-2 rounded-lg ${
-            filter === "incomplete"
-              ? "bg-yellow-500 text-white"
-              : "bg-gray-200 text-gray-800"
-          }`}
+        </NavLink>
+
+        <NavLink
+          to={PATHS.MEMO_INCOMPLETE}
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-lg ${
+              isActive
+                ? "bg-yellow-500 text-white"
+                : "bg-gray-200 text-gray-800"
+            }`
+          }
         >
           미완료
-        </button>
-        <button
-          onClick={() => setFilter("completed")}
-          className={`px-4 py-2 rounded-lg ${
-            filter === "completed"
-              ? "bg-green-500 text-white"
-              : "bg-gray-200 text-gray-800"
-          }`}
+        </NavLink>
+
+        <NavLink
+          to={PATHS.MEMO_COMPLETE}
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-lg ${
+              isActive ? "bg-green-500 text-white" : "bg-gray-200 text-gray-800"
+            }`
+          }
         >
           완료
-        </button>
+        </NavLink>
       </div>
-      {filteredMemos.length > 0 && token !== null ? (
-        <ul className="space-y-4">
-          {filteredMemos.map((ele) => (
-            <li
-              key={ele.id}
-              className="p-4 border rounded-lg shadow-sm bg-gray-50 flex items-center"
-            >
-              {(filter === "incomplete" || filter === "all") && (
-                <input
-                  type="checkbox"
-                  checked={ele.isCompleted}
-                  onChange={() => handleToggleCompletion(ele.id)}
-                  className="mr-4 h-6 w-6"
-                />
-              )}
-              <span
-                className={ele.isCompleted ? "line-through text-gray-500" : ""}
-              >
-                할 일: {ele.content} 마감 기한 : {ele.dueDate} 우선 순위:{" "}
-                {ele.priority}
-                카테고리 : {ele.category}
-              </span>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-gray-500">저장된 메모가 없습니다.</p>
-      )}
+
+      {/* ⭐️ Outlet: 선택된 필터 컴포넌트 (MemoAll, MemoIncomplete, MemoComplete 중 하나)가 렌더링될 위치 */}
+      <Outlet />
     </div>
   );
 }
