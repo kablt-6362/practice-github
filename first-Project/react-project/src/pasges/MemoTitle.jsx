@@ -13,12 +13,15 @@ export default function MemoTitle() {
       {memotitle.length > 0 && token !== null ? (
         <ul className="space-y-4">
           {memotitle.map((ele, index) => {
+            console.log(ele);
             return (
               <li
                 key={index}
                 className="p-4 border rounded-lg shadow-sm bg-gray-50"
               >
-                {ele.content}
+                할 일: {ele.content} 마감 기한 : {ele.dueDate} 우선 순위:
+                {ele.priority}
+                카테고리 : {ele.category} 완료여부 : {ele.isCompleted}
               </li>
             );
           })}

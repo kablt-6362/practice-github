@@ -2,12 +2,41 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addAiResponse } from "../store/authSlice";
 
 // chatMessage는 사용자 입력값orai응답 값을 받아서 역할에 따라 내용을 반환한다
 // 반환된 내용안 messagelist에 작성된다
 export default function ChatMessage({ message }) {
   const isUser = message.role === "user";
   const [parsedContent, setParsedContent] = useState(null);
+  const [isAdd, setIsAdd] = useState(false);
+  const dispatch = useDispatch();
+
+  // ⭐️ handleAddResponse 함수 완성
+  function handleAddResponse() {
+    if (!parsedContent) {
+      console.error("파싱된 내용이 없어 메모를 추가할 수 없습니다.");
+      return;
+    }
+    if (isAdd === true) {
+      return;
+    }
+
+    // 1. ⭐️ parseContent의 데이터를 사용하여 새 객체 생성 (요구하신 예시를 따름)
+    const newMemoObject = {
+      content: parsedContent.content,
+      dueDate: parsedContent.dueDate,
+      priority: parsedContent.priority,
+      category: parsedContent.category,
+      isCompleted: parsedContent.isCompleted,
+      // (주의: authSlice의 addAiResponse 리듀서가 이 전체 객체를 받도록 설정되어 있어야 함)
+    };
+    dispatch(addAiResponse(newMemoObject));
+    setIsAdd(true);
+    // 사용자에게 메모가 추가되었음을 알리는 피드백 (선택 사항)
+    alert("메모가 목록에 추가되었습니다!");
+  }
 
   useEffect(() => {
     if (isUser) {
@@ -45,7 +74,13 @@ export default function ChatMessage({ message }) {
 완료 여부: ${parsedContent.isCompleted}`}
             </ReactMarkdown>
             <div>
-              <button>메모 추가</button>
+              <button
+                onClick={() => {
+                  handleAddResponse();
+                }}
+              >
+                메모 추가
+              </button>
               <button>취소</button>
             </div>
           </>

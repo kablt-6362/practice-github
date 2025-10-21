@@ -103,6 +103,10 @@ const authSlice = createSlice({
       state.memotitle.push({
         id: Date.now(),
         content: action.payload.content,
+        dueDate: action.payload.dueDate,
+        priority: action.payload.priority,
+        category: action.payload.category,
+        isCompleted: action.payload.isCompleted,
       });
     },
     clearMemoTitle: (state) => {
