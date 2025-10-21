@@ -12,7 +12,6 @@ export default function MemoTitle() {
   if (token === null) {
     return <p className="text-gray-500 p-8">로그인 후 메모를 확인해 주세요.</p>;
   }
-
   return (
     <div className="p-8 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">메모 목록</h1>
