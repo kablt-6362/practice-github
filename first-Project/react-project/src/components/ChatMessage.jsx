@@ -38,6 +38,14 @@ export default function ChatMessage({ message, canclemessage }) {
     alert("메모가 목록에 추가되었습니다!");
   }
 
+  function handleCancle() {
+    if (isAdd === true) {
+      console.log("이미추가된 메모입니다");
+      return;
+    }
+    canclemessage;
+  }
+
   useEffect(() => {
     if (isUser) {
       setParsedContent(null);
@@ -81,7 +89,13 @@ export default function ChatMessage({ message, canclemessage }) {
               >
                 메모 추가
               </button>
-              <button onClick={canclemessage}>취소</button>
+              <button
+                onClick={() => {
+                  handleCancle();
+                }}
+              >
+                취소
+              </button>
             </div>
           </>
         ) : (
