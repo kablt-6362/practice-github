@@ -132,7 +132,7 @@ const authSlice = createSlice({
       })
       .addCase(logout.rejected, (state, action) => {
         state.token = null;
-        // rejectWithValue로 전달된 메시지 확인 (가장 깔끔함)
+        // rejectWithValue로 전달된 메시지 확인
         if (action.payload) {
           state.error = action.payload;
           console.error("로그아웃 오류 (Payload):", action.payload);
