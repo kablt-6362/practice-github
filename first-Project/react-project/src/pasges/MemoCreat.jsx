@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PATHS from "../Path/paths";
-import { addAiResponse } from "../store/authSlice";
-import { useDispatch } from "react-redux";
 import ChatForm from "../components/ChatForm";
 import MessageList from "../components/MessageList";
 import { ai } from "../utils/genai";
@@ -16,7 +14,6 @@ export default function MemoCreat() {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([]);
   const [isloading, setisLoading] = useState(false);
-  const dispatch = useDispatch();
 
   //handle 함수
   async function handleSubmit(event) {
@@ -48,6 +45,7 @@ export default function MemoCreat() {
   }
 
   async function cancleMessage() {
+    console.log("취소 함수 확인 콘솔");
     setMessages((prev) => [
       ...prev,
       { role: "ai", content: "취소되었습니다." },

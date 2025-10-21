@@ -43,6 +43,7 @@ export default function ChatMessage({ message, canclemessage }) {
       console.log("이미추가된 메모입니다");
       return;
     }
+    console.log("handleclick");
     canclemessage;
   }
 
@@ -81,8 +82,9 @@ export default function ChatMessage({ message, canclemessage }) {
 메모 내용 종류 : ${parsedContent.category}\n
 완료 여부: ${parsedContent.isCompleted}`}
             </ReactMarkdown>
-            <div>
+            <div className="flex gap-2">
               <button
+                className="border-2"
                 onClick={() => {
                   handleAddResponse();
                 }}
@@ -90,8 +92,10 @@ export default function ChatMessage({ message, canclemessage }) {
                 메모 추가
               </button>
               <button
+                className="border-2"
                 onClick={() => {
                   handleCancle();
+                  console.log("삭제 버튼확인 콘솔");
                 }}
               >
                 취소

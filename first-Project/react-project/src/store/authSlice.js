@@ -118,6 +118,11 @@ const authSlice = createSlice({
         memo.isCompleted = !memo.isCompleted;
       }
     },
+    deleteMemo: (state, action) => {
+      state.memotitle = state.memotitle.filter(
+        (memo) => memo.id !== action.payload
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -153,5 +158,6 @@ export const {
   addAiResponse,
   clearMemoTitle,
   toggleMemoCompletion,
+  deleteMemo,
 } = authSlice.actions;
 export { signUp, login, logout };
