@@ -1,16 +1,42 @@
-# React + Vite
+# 프로젝트 제작 의도
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. 배워온 React의 개념 복습 및 사용
+2. supabase사용을 통한 비동기 처리 복습
+3. GoogleGenAi 사용을 통한 Ai응용 프로그램 제작
 
-Currently, two official plugins are available:
+## 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 메모가 필요한 내용을 쓰면, ai가 내용을 분석하고 제작자가 정해진 key의 값에 맞게 값을 배치하여 메모를 생성,관리 하는 프로그램입니다.
 
-## React Compiler
+### 기술 스텍
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| 카테고리            | 기술 스택            | 세부 활용 기능                                                                                       |
+| :------------------ | :------------------- | :--------------------------------------------------------------------------------------------------- |
+| **프론트엔드 핵심** | **React**            | 컴포넌트 기반 UI 구성, **Hooks** (`useState`, `useEffect`)를 활용한 로컬 상태 및 사이드 이펙트 관리. |
+| **상태 관리**       | **Redux Toolkit**    | 전역 상태(`memotitle`, `token`) 관리, 구조화된 Redux 구현.                                           |
+| **비동기 처리**     | **Redux Thunk**      | 사용자 인증 및 메모 데이터 통신 등 **API 연동** 비동기 로직 처리.                                    |
+| **라우팅**          | **React Router DOM** | **중첩 라우팅** 및 `<Outlet />`, `<NavLink />`, `<Navigate />`를 활용한 동적 필터링 구현.            |
+| **스타일링**        | **Tailwind CSS**     | 빠르고 유틸리티 중심적인 클래스를 활용하여 UI를 구성.                                                |
 
-## Expanding the ESLint configuration
+### 프로젝트 실행 방법
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  Node.j & npm : javascript 런타임 및 패키지 관리자 설치 필요
+2.  Git: 소스코드 클론을 위해 설치 필요
+3.  프로젝트에 사용한 모든 라이브러리 설치 필요
+    - react,react-router-dom(V7),react-redux,reduxjs/toolkit,redux-persist
+    - google/genai
+4.  환경변수 파일 준비(.env.example)에 사용한 변수 설명
+5.  모든 설정이 완료되면 로컬서버에서 실행 시킵니다.
+
+### 기타
+
+1. 성과,새롭게 학습한 내용: 현재 나와있는 Ai기능을 이용하여 제작해봄으로써 Ai의 새로운 개발뿐만 아닌 있는것을 이용한 프로그래밍으로 만들수 있다는것을 배웠습니다.
+   이 프로젝트에는 gemini2.5 버전을 불러와 응답스키마를 설정하므로서 '메모생성 및 관리'를 해주는 프로그램을 만들었습니다.
+
+2. 아쉬운점,개성사항,향후 계획
+
+- 아쉬운점 : 서버(백엔드)를 배우지 않아 로컬저장소를 이용한 점이 아쉬웠고 하다못해 supabase에 직접 계정을 만들어서 사용못한것이 많이 아쉬웠습니다.
+- 개선사항 : 미흡한 완성도, 원하는 기능을 구현은 했지만 사용자가 개발자가 에측하지 못한 동작으로 오류를 불러오거나 작동을 안한것에 대한 보완이 많이 미흡한거 같습니다. 프로그램을 실행 시켜서 여러가지 조작을 통해 어떠한 상황에서도 오류가 나지않고 사용자의 동작에 반응하는 프로그래밍을 수정/보완 해야합니다.
+- 향후 계획: 긴 기간동안 프로젝트를 만들었습니다. 만드는 동안 머릿속에서 맴도는 문장이 있었는데 그건 '아 이거 봤던건데 어떻게 했더라?' 입니다. 네 맞습니다. 복습 열심히 하겠습니다. 최대한 프로그램을 만드는데 있어 설계부터 직접 그려가면서 하려 했지만 중간중간 기술구현에서 막히고 해당 부분을 질문이나 검색을 통해 해결할때 항상 배웠던것을 응용못해서 막힌거 같습니다. 기초는 물론 해당 기초를 응용하는 단계까지 단단히 해야 합니다.
+  제일 힘들었던게 기초가 부족하니 '내가 모르는것에 대한 질문의 질'이 많이 낮아 사고의 확장이 잘 안되었던거 같습니다.
+- 그래도 하면서 좋았던점: 짧은기간동안 많은 양을 배웠는데 프로젝트를 진행하면서 잘몰랐던 부분 (React)에 대해 처음보다 훨씬 더 알고 잘다루게 된거 같습니다.
