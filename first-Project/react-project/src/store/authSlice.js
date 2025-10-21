@@ -129,6 +129,20 @@ const authSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.token = null;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.token = null;
+        // rejectWithValue로 전달된 메시지 확인 (가장 깔끔함)
+        if (action.payload) {
+          state.error = action.payload;
+          console.error("로그아웃 오류 (Payload):", action.payload);
+        }
+        // payload가 없다면 (rejectWithValue를 사용하지 않았을 때), action.error 확인
+        else if (action.error.message) {
+          state.error = action.error.message;
+          console.error("로그아웃 오류 (Error Message):", action.error.message);
+        }
+        alert("로그아웃 되었습니다.");
       });
   },
 });
