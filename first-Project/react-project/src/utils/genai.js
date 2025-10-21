@@ -31,8 +31,12 @@ const responseSchema = {
       type: "string",
       description: "메모 내용의 종류(업무,가사,운동,약속 등)",
     },
+    isCompleted: {
+      type: "string",
+      description: "메모된 내용은 다 시작전이니 'false로 처리'",
+    },
   },
-  required: ["content", "dueDate", "priority", "category"],
+  required: ["content", "dueDate", "priority", "category", "isCompleted"],
   additionalProperties: false,
 };
 
@@ -46,6 +50,7 @@ const systemInstruction = [
   "시간 : [현재 날짜를 기준으로 계산된 YYYY/MM/DD 시간 형태. 시간이 없으면 빈칸]",
   "중요도: [요청의 중요도를 고려하여 '높음', '보통', '낮음' 중 하나]",
   "카테고리: [내용의 종류 (예: 건강, 업무, 가사, 약속 등)]",
+  "완성여부: [생성 후에는 전부 '미완성'으로 작성]",
 
   // ⭐️ 추가 규칙
   "날짜와 시간이 상대적으로 주어졌다면 반드시 현재 날짜/시간을 기준으로 계산하여 구체적인 날짜로 변환합니다. (예: '내일 오후5시'를 'YYYY/MM/DD 17:00' 형태로)",
