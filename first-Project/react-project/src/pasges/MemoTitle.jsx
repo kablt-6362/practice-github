@@ -64,7 +64,7 @@ export default function MemoTitle() {
               key={ele.id}
               className="p-4 border rounded-lg shadow-sm bg-gray-50 flex items-center"
             >
-              {filter === "all" && (
+              {(filter === "incomplete" || filter === "all") && (
                 <input
                   type="checkbox"
                   checked={ele.isCompleted}
