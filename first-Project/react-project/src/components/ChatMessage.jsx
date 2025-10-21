@@ -7,7 +7,7 @@ import { addAiResponse } from "../store/authSlice";
 
 // chatMessage는 사용자 입력값orai응답 값을 받아서 역할에 따라 내용을 반환한다
 // 반환된 내용안 messagelist에 작성된다
-export default function ChatMessage({ message }) {
+export default function ChatMessage({ message, canclemessage }) {
   const isUser = message.role === "user";
   const [parsedContent, setParsedContent] = useState(null);
   const [isAdd, setIsAdd] = useState(false);
@@ -81,7 +81,7 @@ export default function ChatMessage({ message }) {
               >
                 메모 추가
               </button>
-              <button>취소</button>
+              <button onClick={canclemessage}>취소</button>
             </div>
           </>
         ) : (

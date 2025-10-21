@@ -18,7 +18,6 @@ export default function MemoCreat() {
   const [isloading, setisLoading] = useState(false);
   const dispatch = useDispatch();
 
-
   //handle 함수
   async function handleSubmit(event) {
     event.preventDefault();
@@ -48,6 +47,13 @@ export default function MemoCreat() {
     }
   }
 
+  async function cancleMessage() {
+    setMessages((prev) => [
+      ...prev,
+      { role: "ai", content: "취소되었습니다." },
+    ]);
+  }
+
   useEffect(() => {
     if (token === null) {
       alert("로그인 후 사용해 주세요.");
@@ -59,7 +65,7 @@ export default function MemoCreat() {
   return (
     <div className="h-[calc(100vh-150px)] flex flex-col bg-white rounded-lg shadow-md">
       {/* 메세지 리스트, chat폼, chat메세지 */}
-      <MessageList message={messages} />
+      <MessageList message={messages} canclemessage={cancleMessage} />
       <ChatForm
         prompt={prompt}
         setprompt={setPrompt}

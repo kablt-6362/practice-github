@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 
-export default function MessageList({ message }) {
+export default function MessageList({ message, canclemessage }) {
   const messageEndRef = useRef(null);
 
   // 메시지 배열이 추가될떄마다 스크롤의 위치를 최하단으로 함
@@ -15,7 +15,13 @@ export default function MessageList({ message }) {
       <div className="flex flex-col space-y-2">
         {/* MessageList 는 chatMessage를 반환한다. */}
         {message.map((message, index) => {
-          return <ChatMessage key={index} message={message}></ChatMessage>;
+          return (
+            <ChatMessage
+              key={index}
+              message={message}
+              canclemessage={canclemessage}
+            />
+          );
         })}
         {/* 아래 div 기준 스크롤 위치 조정 */}
         <div ref={messageEndRef}></div>
