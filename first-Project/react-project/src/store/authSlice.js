@@ -106,13 +106,18 @@ const authSlice = createSlice({
         dueDate: action.payload.dueDate,
         priority: action.payload.priority,
         category: action.payload.category,
-        isCompleted: action.payload.isCompleted,
+        isCompleted: false,
       });
     },
     clearMemoTitle: (state) => {
       state.memotitle = [];
     },
-    //
+    toggleMemoCompletion: (state, action) => {
+      const memo = state.memotitle.find((memo) => memo.id === action.payload);
+      if (memo) {
+        memo.isCompleted = !memo.isCompleted;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -129,6 +134,10 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { resetSignupSuccess, addAiResponse, clearMemoTitle } =
-  authSlice.actions;
+export const {
+  resetSignupSuccess,
+  addAiResponse,
+  clearMemoTitle,
+  toggleMemoCompletion,
+} = authSlice.actions;
 export { signUp, login, logout };
